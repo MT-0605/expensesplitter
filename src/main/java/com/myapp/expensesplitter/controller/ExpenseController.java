@@ -1,6 +1,7 @@
 package com.myapp.expensesplitter.controller;
 
 import com.myapp.expensesplitter.model.Expense;
+import com.myapp.expensesplitter.model.ExpenseShare;
 import com.myapp.expensesplitter.model.User;
 import com.myapp.expensesplitter.service.ExpenseService;
 import com.myapp.expensesplitter.service.UserService;
@@ -43,10 +44,15 @@ public class ExpenseController {
         return expense;
     }
 
-    @PutMapping("/expenses")
-    public Expense updateExpense(@RequestBody Expense expense)
+    @PutMapping("/expenses{expenseId}")
+    public Expense updateExpense(@PathVariable int expenseId,@RequestBody Expense expense)
     {
-        expenseService.save(expense);
+        Expense expense1 = expenseService.findById(expenseId);
+        expense1.setId(expense.getId());
+        expense1.setDescription(expense.getDescription());
+        expense1.setAmount(expense.getAmount());
+        expense1.setPayer(expense.getPayer());
+        expenseService.save(expense1);
         return expense;
     }
 

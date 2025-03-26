@@ -13,10 +13,14 @@ public class User {
     private int id;
 
     private String name;
-    private String email;
-    @JsonIgnore
-    private String password;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+    @Column(unique = true, nullable = false)
+    private String username;
+    @Column(nullable = false)
+    private String password;
+    private String role;
     @JsonIgnore
     @OneToMany(mappedBy = "payer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Expense> expenses;
@@ -72,12 +76,30 @@ public class User {
         this.expenses = expenses;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

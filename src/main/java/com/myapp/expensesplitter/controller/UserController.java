@@ -1,8 +1,10 @@
 package com.myapp.expensesplitter.controller;
 
+import com.myapp.expensesplitter.model.ExpenseShare;
 import com.myapp.expensesplitter.model.User;
 import com.myapp.expensesplitter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +29,11 @@ public class UserController {
     @PostMapping("/users")
     public User addUser(@RequestBody User user)
     {
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
+        if (user.getPassword() == null) {
+            throw new IllegalArgumentException("Password cannot be null");
+        }
         userService.save(user);
         return user;
     }
@@ -41,10 +48,17 @@ public class UserController {
         return user;
     }
 
-    @PutMapping("/users")
-    public User updateUser(@RequestBody User user)
+    @PutMapping("/users/{userId}")
+    public User updateUser(@PathVariable int userId,@RequestBody User user)
     {
-        userService.save(user);
+        User user1 = userService.findById(userId);
+        user1.setId(user.getId());
+        user1.setName(user.getName());
+        user1.setUsername(user.getUsername());
+        user1.setEmail(user.getEmail());
+        user1.setPassword(user1.getPassword());
+        user1.setRole(user.getRole());
+        userService.save(user1);
         return user;
     }
 
