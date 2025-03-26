@@ -1,12 +1,10 @@
 package com.myapp.expensesplitter.service;
 
 import com.myapp.expensesplitter.model.ExpenseShare;
-import com.myapp.expensesplitter.model.User;
 import com.myapp.expensesplitter.repository.ExpenseShareRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

@@ -32,9 +32,11 @@ public class ExpenseShareController {
     @GetMapping("/expense-shares/{expenseShareId}")
     public ExpenseShare getExpenseShare(@PathVariable int expenseShareId) {
         ExpenseShare expenseShare = expenseShareService.findById(expenseShareId);
+
         if (expenseShare == null) {
             throw new RuntimeException("ExpenseShare id not found - " + expenseShareId);
         }
+
         return expenseShare;
     }
 
@@ -52,9 +54,11 @@ public class ExpenseShareController {
     @DeleteMapping("/expense-shares/{expenseShareId}")
     public String deleteExpenseShare(@PathVariable int expenseShareId) {
         ExpenseShare expenseShare = expenseShareService.findById(expenseShareId);
+
         if (expenseShare == null) {
             throw new RuntimeException("ExpenseShare id not found - " + expenseShareId);
         }
+
         expenseShareService.deleteById(expenseShareId);
         return "Deleted ExpenseShare id - " + expenseShareId;
     }

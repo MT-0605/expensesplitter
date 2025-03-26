@@ -11,16 +11,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
 
     @Column(unique = true, nullable = false)
     private String email;
+
     @Column(unique = true, nullable = false)
     private String username;
+
     @Column(nullable = false)
     private String password;
+
     private String role;
+
     @JsonIgnore
     @OneToMany(mappedBy = "payer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Expense> expenses;

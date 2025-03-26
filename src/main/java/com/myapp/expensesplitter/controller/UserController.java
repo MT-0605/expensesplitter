@@ -1,10 +1,8 @@
 package com.myapp.expensesplitter.controller;
 
-import com.myapp.expensesplitter.model.ExpenseShare;
 import com.myapp.expensesplitter.model.User;
 import com.myapp.expensesplitter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
     private UserService userService;
 
     @Autowired

@@ -11,7 +11,6 @@ public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String description;
     private double amount;
 

@@ -1,18 +1,14 @@
 package com.myapp.expensesplitter.controller;
-
 import com.myapp.expensesplitter.model.Expense;
-import com.myapp.expensesplitter.model.ExpenseShare;
-import com.myapp.expensesplitter.model.User;
 import com.myapp.expensesplitter.service.ExpenseService;
-import com.myapp.expensesplitter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class ExpenseController {
+
     private ExpenseService expenseService;
 
     @Autowired

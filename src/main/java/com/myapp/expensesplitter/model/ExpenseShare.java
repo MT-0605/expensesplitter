@@ -1,6 +1,5 @@
 package com.myapp.expensesplitter.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
