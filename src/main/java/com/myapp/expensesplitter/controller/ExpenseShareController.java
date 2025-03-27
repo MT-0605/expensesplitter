@@ -44,7 +44,7 @@ public class ExpenseShareController {
     public ExpenseShare updateExpenseShare(@PathVariable int expenseShareId,@RequestBody ExpenseShare expenseShare) {
         ExpenseShare expenseShare1 = expenseShareService.findById(expenseShareId);
         expenseShare1.setExpense(expenseShare.getExpense());
-        expenseShare1.setId(expenseShare.getId());
+        expenseShare1.setId(expenseShareId);
         expenseShare1.setAmountOwed(expenseShare.getAmountOwed());
         expenseShare1.setUser(expenseShare.getUser());
         expenseShareService.save(expenseShare1);

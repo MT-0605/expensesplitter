@@ -51,7 +51,7 @@ public class UserController {
     public User updateUser(@PathVariable int userId,@RequestBody User user)
     {
         User user1 = userService.findById(userId);
-        user1.setId(user.getId());
+        user1.setId(userId);
         user1.setName(user.getName());
         user1.setUsername(user.getUsername());
         user1.setEmail(user.getEmail());

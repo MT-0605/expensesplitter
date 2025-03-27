@@ -44,7 +44,7 @@ public class ExpenseController {
     public Expense updateExpense(@PathVariable int expenseId,@RequestBody Expense expense)
     {
         Expense expense1 = expenseService.findById(expenseId);
-        expense1.setId(expense.getId());
+        expense1.setId(expenseId);
         expense1.setDescription(expense.getDescription());
         expense1.setAmount(expense.getAmount());
         expense1.setPayer(expense.getPayer());
