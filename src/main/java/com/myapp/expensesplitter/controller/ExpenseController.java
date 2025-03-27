@@ -40,7 +40,7 @@ public class ExpenseController {
         return expense;
     }
 
-    @PutMapping("/expenses{expenseId}")
+    @PutMapping("/expenses/{expenseId}")
     public Expense updateExpense(@PathVariable int expenseId,@RequestBody Expense expense)
     {
         Expense expense1 = expenseService.findById(expenseId);
@@ -53,7 +53,7 @@ public class ExpenseController {
     }
 
     @DeleteMapping("/expenses/{expenseId}")
-    public String deleteUser(@PathVariable int expenseId) {
+    public String deleteExpense(@PathVariable int expenseId) {
 
         Expense expense = expenseService.findById(expenseId);
 
