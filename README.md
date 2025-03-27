@@ -26,13 +26,10 @@ Expense Splitter is a backend application designed to manage and split expenses 
    mvn clean install
    ```
 3. Configure the database in `application.properties`.
-4. Start the backend server:
-   ```bash
-   mvn spring-boot:run
-   ```
+4. Run this project and check api endpoints on postman
 
 ## API Endpoints
-- **POST /api/users - Register a new user
+- **POST /api/users** - Register a new user
 - **GET /api/users/** - Return all users and if specified id then return that user
 - **PUT /api/users/{id}** - Update an user
 - **DELETE /api/users/{id}** - Delete an user
