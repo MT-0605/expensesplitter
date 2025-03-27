@@ -55,7 +55,7 @@ public class UserController {
         user1.setName(user.getName());
         user1.setUsername(user.getUsername());
         user1.setEmail(user.getEmail());
-        user1.setPassword(user1.getPassword());
+        user1.setPassword(user.getPassword());
         user1.setRole(user.getRole());
         userService.save(user1);
         return user;
